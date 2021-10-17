@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Blog1 from './blog1';
+import Index from './App';
 import Blog2_1 from './blog2-1';
 import Blog2_2 from './blog2-2';
 import Blog3 from './blog3';
@@ -8,7 +8,7 @@ import Blog3 from './blog3';
 const route = {
     path: '/',
     label: '首页',
-    component: Blog1,
+    component: Index,
     routes: [
         {
             path: '/child_1',

@@ -22,9 +22,8 @@ body {
 }
 
 .one {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
 }
@@ -63,9 +62,27 @@ body {
 }
 
 .two {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.three {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+.text {
+  position: relative;
+  z-index: 1;
+  margin-right: 28px;
+  margin-left: 28px;
+}
+
+.text-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.text-content {
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
 }

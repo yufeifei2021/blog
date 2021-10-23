@@ -61,6 +61,18 @@ body {
   text-align: center;
 }
 
+.icon-button svg {
+  color: white;
+}
+
+.up {
+  top: 20px;
+}
+
+.down {
+  bottom: 20px;
+}
+
 .two {
   display: flex;
   flex-direction: column;
@@ -71,18 +83,51 @@ body {
 .text {
   position: relative;
   z-index: 1;
-  margin-right: 28px;
   margin-left: 28px;
+  margin-right: 28px;
 }
 
 .text-title {
   text-align: center;
   color: #ffffff;
   font-size: 30px;
+  margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 639px) {
+  .text-content {
+    text-indent: 2em;
+    text-align: justify;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .text-content {
+    text-align: center;
+  }
 }
 
 .text-content {
-  text-align: center;
   color: #ffffff;
   font-size: 15px;
+}
+
+.three {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-line {
+  position: relative;
+  z-index: 1;
+}
+
+.stepper {
+  color: white;
+}
+
+.icon-container {
+  flex-direction: column;
 }

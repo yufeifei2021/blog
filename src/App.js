@@ -32,6 +32,10 @@ const App = () => {
     setActiveStep(0);
   };
 
+  const handleICP = () => {
+    window.open('https://beian.miit.gov.cn/', '_blank'); 
+  }
+
   React.useEffect(() => {
     window.addEventListener('wheel', handleWheel);
     return () => {
@@ -45,29 +49,24 @@ const App = () => {
 
   const steps = [
     {
-      label: '嘭的一声巨响，我出生了！',
-      description: '寒冬腊月，正逢十五...',
-
+      label: '98伊始 嘭的一声，我👧🏻出生了！',
+      description: '寒冬腊月💨，正逢十五~ 我咕呱落地。',
     },
     {
-      label: 'xx',
-      description: 'yy',
-
+      label: '好好学习📚，天天向上📃！',
+      description: '18年寒窗苦读，2016年来到天津。',
     },
     {
-      label: '嘭的一声巨响，我出生了！',
-      description: '寒冬腊月，正逢十五...',
-
+      label: '本科毕业👩🏻‍🎓 研究生入学👩‍⚖️',
+      description: '由通信工程 转攻软件工程-电子信息🔗...',
     },
     {
-      label: '嘭的一声巨响，我出生了！',
-      description: '寒冬腊月，正逢十五...',
-
+      label: '读研期间...',
+      description: 'C、Python、Java、C++、JavaScript + NLP理解',
     },
     {
-      label: '嘭的一声巨响，我出生了！',
-      description: '寒冬腊月，正逢十五...',
-
+      label: '畅想未来o(*￣▽￣*)ブ',
+      description: '打工媛🧱 攒钱钱💸 买车🚗买房🏡 环球旅游🛫 结婚🎎 养崽崽👶🏻 退休👩🏻‍🦼',
     },
   ];
 
@@ -110,7 +109,7 @@ const App = () => {
               我要在这骑上最快的马🐎，翻过最美的森林🌳，把简历📚投递到我心仪的大厂~
             </p>
             <p className="text-content">
-              我我我我...是个清新妹妹桑，爱打打羽毛球、一个人没事儿散步、影视剧给我满满的power、喜欢被拍照...
+              我我我我...是个清新妹妹桑，爱打打羽毛球🏸、一个人没事儿散步、影视剧🎥🎬📽给我满满的power、喜欢被拍照...
             </p>
             <p className="text-content">
               爱吃算是我的巨大爱好，没办法，超爱美食o(*^＠^*)o
@@ -136,42 +135,35 @@ const App = () => {
           <IconButton className="icon-button up" style={{ position: "absolute" }} onClick={() => setPage(2)}>
             <KeyboardArrowUp />
           </IconButton>
-          <div className="time-line">
-            <Stepper className="stepper" activeStep={activeStep} orientation="vertical">
-              {steps.map((step, index) => (
-                <Step key={step.label}>
-                  <StepLabel
-                    optional={
-                      index === 2 ? (
-                        <Typography variant="caption">Last step</Typography>
-                      ) : null
-                    }
-                  >
-                    {step.label}
-                  </StepLabel>
-                  <StepContent>
-                    <Typography>{step.description}</Typography>
-                    <div className="icon-container">
-                      {index !== steps.length - 1 && <IconButton className="icon-button time-down" onClick={handleNext}>
-                        <KeyboardArrowDown />
-                      </IconButton>}
-                      {index !== 0 && <IconButton className="icon-button time-up" onClick={handleBack}>
-                        <KeyboardArrowUp />
-                      </IconButton>}
-                    </div>
-                  </StepContent>
-                </Step>
-              ))}
-            </Stepper>
-            {activeStep === steps.length && (
-              <Paper square elevation={0} sx={{ p: 3 }}>
-                <Typography>All steps completed - you&apos;re finished</Typography>
-                <IconButton onClick={handleReset}>
-                  <RotateLeft/>
-                </IconButton>
-              </Paper>
-            )}
-            );
+          <div className="time-line-container">
+            <div className="time-line">
+              <Stepper className="stepper" activeStep={activeStep} orientation="vertical">
+                {steps.map((step, index) => (
+                  <Step key={step.label}>
+                    <StepLabel className="step-label">
+                      {step.label}
+                    </StepLabel>
+                    <StepContent>
+                      <Typography>{step.description}</Typography>
+                      <div className="icon-container">
+                        {index !== steps.length - 1 && <IconButton className="icon-button time-down" onClick={handleNext}>
+                          <KeyboardArrowDown />
+                        </IconButton>}
+                        {index !== 0 && <IconButton className="icon-button time-up" onClick={handleBack}>
+                          <KeyboardArrowUp />
+                        </IconButton>}
+                        {index === steps.length - 1 && <IconButton className="icon-button time-reset" onClick={handleReset}>
+                          <RotateLeft />
+                        </IconButton>}
+                      </div>
+                    </StepContent>
+                  </Step>
+                ))}
+              </Stepper>
+            </div>
+          </div>
+          <div className="ICP" onClick={handleICP}>
+            津ICP备2021007569号-1
           </div>
         </div>
       </div>

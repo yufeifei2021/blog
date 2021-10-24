@@ -119,15 +119,42 @@ body {
   align-items: center;
 }
 
-.time-line {
+.time-line-container {
+  flex-grow: 1;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-line {
+  width: 450px;
+  max-width: 60%;
 }
 
 .stepper {
   color: white;
 }
 
+.step-label span {
+  color: white;
+  font-size: 18px;
+}
+
 .icon-container {
   flex-direction: column;
+}
+
+.ICP {
+  z-index: 1;
+  position: relative;
+  color: rgb(184, 179, 179);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ICP:hover {
+  color: white;
 }

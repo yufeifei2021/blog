@@ -10,6 +10,7 @@ const routeview = ({route}) => {
             <Route
                 key={String(route.path)}
                 path={route.path}
+                exact={route.exact}
             >
                 <route.component>
                 <Switch>
@@ -25,6 +26,7 @@ const routeview = ({route}) => {
             key={String(route.path)}
             path={route.path}
             component={route.component}
+            exact={route.exact}
         />
     )
 }

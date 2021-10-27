@@ -169,6 +169,9 @@ const App = () => {
           <div className="ICP" onClick={handleICP}>
             津ICP备2021007569号-1
           </div>
+          {/* <div className="button">
+            博文编辑    我的简历    pick我的项目    学习笔记 
+          </div> */}
         </div>
       </div>
     </div>

@@ -2,8 +2,7 @@ import React from 'react';
 import Wrapper from './pageWrapper';
 import Index from './App';
 import BlogEditor from './BlogEditor';
-import Blog2_2 from './blog2-2';
-import Blog3 from './blog3';
+import BlogArticle from './BlogArticle';
 
 const route = {
     path: '/',
@@ -18,6 +17,10 @@ const route = {
         {
             path: '/blog_editor',
             component: BlogEditor,
+        },
+        {
+            path: '/blog_article',
+            component: BlogArticle,
         },
     ],
 };

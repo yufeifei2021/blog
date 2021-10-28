@@ -34,6 +34,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    max-width: 90%;
 }
 
 .form > p {
@@ -47,6 +48,7 @@ body {
     width:500px;
     color: black;
     background-color: white;
+    max-width: 100%;
 }
 
 .submit {

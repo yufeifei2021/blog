@@ -1,10 +1,14 @@
 import React from 'react';
+import { useForm, Controller } from "react-hook-form";
 import './BlogEditor.css';
 import pageThreeoBg from './pagethreebg.jpg';
 import { AppBar, Toolbar, Typography, IconButton, Input, Button } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 
 const Blogeditor = () => {
+
+    const { control, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
 
     return (
         <>
@@ -19,14 +23,42 @@ const Blogeditor = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <form className="form" action="form_action.asp" method="get"> 
+            <form className="form" action="form_action.asp" method="get" onSubmit={handleSubmit(onSubmit)}> 
                 <p>博文名称: </p>
-                <Input className="blog-content " type="text" name="name" placeholder=" name" />
+                <Controller
+                    name="name"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder=" name"
+                    {...field} />}
+                />
                 <p>内容摘要: </p>
-                <Input className="blog-content " multiline rows="2" type="text" name="summary" placeholder=" summary" />
+                <Controller
+                    name="summary"
+                    control={control}
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder=" summary"
+                    multiline
+                    rows="2"
+                    {...field} 
+                    />}
+                />
                 <p>正文: </p>
-                <Input className="blog-content" multiline rows="10" type="text" name="content" placeholder=" content" />
-                <Button className="submit" variant="contained" htmlType="submit">提交博文</Button>
+                <Controller
+                    name="content"
+                    control={control}
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder=" content"
+                    multiline
+                    rows="10"
+                    {...field} 
+                    />}
+                />
+                <Button className="submit" variant="contained" type="submit" >提交博文</Button>
             </form>
         </div>
         <div className="picture-container1">

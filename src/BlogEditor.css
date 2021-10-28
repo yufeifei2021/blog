@@ -5,10 +5,12 @@ body {
 .page1 {
     width: 100%;
     position: relative;
-  }
+}
 
 .picture-container1 {
-    position: absolute;
+    /* 跟着浏览器窗口 */
+    position: fixed; 
+    z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;
@@ -27,3 +29,34 @@ body {
     opacity: 0.6;
     top:0;
 }
+
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.form>p {
+    z-index: 1;
+    font-size: 18px;
+    color: white;
+    width:5em;
+}
+
+.form>p {
+    font-size: 15px;
+    color: white;
+}
+
+.blog-content {
+    width:500px;
+    color: black;
+    background-color: white;
+    /* margin-top: 3px; */
+}
+
+.submit {
+    display: block !important;
+    margin-top: 10px !important;
+}
+

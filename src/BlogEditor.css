@@ -36,27 +36,21 @@ body {
     width: fit-content;
 }
 
-.form>p {
+.form > p {
     z-index: 1;
-    font-size: 18px;
+    font-size: 17px;
     color: white;
     width:5em;
-}
-
-.form>p {
-    font-size: 15px;
-    color: white;
 }
 
 .blog-content {
     width:500px;
     color: black;
     background-color: white;
-    /* margin-top: 3px; */
 }
 
 .submit {
     display: block !important;
-    margin-top: 10px !important;
+    margin-top: 15px !important;
 }
 

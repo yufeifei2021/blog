@@ -23,7 +23,7 @@ const Blogeditor = () => {
                 <p>博文名称: </p>
                 <Input className="blog-content " type="text" name="name" placeholder=" name" />
                 <p>内容摘要: </p>
-                <Input className="blog-content " type="text" name="summary" placeholder=" summary" />
+                <Input className="blog-content " multiline rows="2" type="text" name="summary" placeholder=" summary" />
                 <p>正文: </p>
                 <Input className="blog-content" multiline rows="10" type="text" name="content" placeholder=" content" />
                 <Button className="submit" variant="contained" htmlType="submit">提交博文</Button>

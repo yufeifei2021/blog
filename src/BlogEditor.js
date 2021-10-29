@@ -28,10 +28,11 @@ const Blogeditor = () => {
                 <Controller
                     name="name"
                     control={control}
+                    // 设置或返回文本框的初始内容
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder=" name"
+                    placeholder="name"
                     {...field} />}
                 />
                 <p>内容摘要: </p>
@@ -40,7 +41,7 @@ const Blogeditor = () => {
                     control={control}
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder=" summary"
+                    placeholder="summary"
                     multiline
                     rows="2"
                     {...field} 
@@ -52,7 +53,7 @@ const Blogeditor = () => {
                     control={control}
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder=" content"
+                    placeholder="content"
                     multiline
                     rows="10"
                     {...field} 

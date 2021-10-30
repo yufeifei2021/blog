@@ -23,7 +23,7 @@ const Blogeditor = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <form className="form" action="form_action.asp" method="get" onSubmit={handleSubmit(onSubmit)}> 
+            <form className="form" onSubmit={handleSubmit(onSubmit)}> 
                 <p>Category name: </p>
                 <Controller
                     name="Category name"

@@ -3,6 +3,7 @@ import Wrapper from './pageWrapper';
 import Index from './App';
 import BlogEditor from './BlogEditor';
 import BlogArticle from './BlogArticle';
+import BlogCategory from './BlogCategory';
 
 const route = {
     path: '/',
@@ -21,6 +22,10 @@ const route = {
         {
             path: '/blog_article',
             component: BlogArticle,
+        },
+        {
+            path: '/blog_category',
+            component: BlogCategory,
         },
     ],
 };

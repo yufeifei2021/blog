@@ -2,14 +2,13 @@ body {
     margin: 0;
 }
 
-.page1 {
+.page3 {
     width: 100%;
     position: relative;
-}
+  }
 
-.picture-container1 {
-    /* 跟着浏览器窗口 */
-    position: fixed; 
+.picture-container3 {
+    position: fixed;
     z-index: -1;
     top: 0;
     bottom: 0;
@@ -19,13 +18,13 @@ body {
     /* opacity: 0.9; */
 }
   
-.picture1 {
+.picture3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-    
-.app-bar1 {
+
+.app-bar3 {
     opacity: 0.6;
     top:0;
 }
@@ -45,7 +44,7 @@ body {
     width:10em;
 }
 
-.blog-content {
+.blog-content2 {
     width:580px;
     color: black;
     background-color: white;
@@ -54,21 +53,27 @@ body {
     padding-right: 5px !important;
 }
 
-.button-container {
+.button-container2 {
     text-align:center;
 }
 
-.reset {
-    /* display: block !important; */
+.create {
+    display: block !important;
     margin-top: 15px !important;
     margin-bottom: 15px !important;
-    margin-right: 35px !important;
 }
 
-.submit {
-    /* display: block !important; */
-    margin-top: 15px !important;
-    margin-bottom: 15px !important;
-    margin-left: 35px !important;
+.chip {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 5em;
 }
 
+.chip:first-child {
+    margin-left: 0;
+}
+
+.chip:last-child {
+    margin-right: 0;
+}

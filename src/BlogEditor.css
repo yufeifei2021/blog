@@ -42,7 +42,7 @@ body {
     z-index: 1;
     font-size: 17px;
     color: white;
-    width:5em;
+    width:10em;
 }
 
 .blog-content {
@@ -54,8 +54,21 @@ body {
     padding-right: 5px !important;
 }
 
-.submit {
-    display: block !important;
+.button-container {
+    text-align:center;
+}
+
+.reset {
+    /* display: block !important; */
     margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    margin-right: 35px !important;
+}
+
+.submit {
+    /* display: block !important; */
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    margin-left: 35px !important;
 }
 

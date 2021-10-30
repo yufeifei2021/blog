@@ -24,7 +24,16 @@ const Blogeditor = () => {
                 </Toolbar>
             </AppBar>
             <form className="form" action="form_action.asp" method="get" onSubmit={handleSubmit(onSubmit)}> 
-                <p>博文名称: </p>
+                <p>Category name: </p>
+                <Controller
+                    name="Category name"
+                    control={control}
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder="Category name"
+                    {...field} />}
+                />
+                <p>标题: </p>
                 <Controller
                     name="name"
                     control={control}
@@ -35,7 +44,18 @@ const Blogeditor = () => {
                     placeholder="name"
                     {...field} />}
                 />
-                <p>内容摘要: </p>
+                <p>副标题: </p>
+                <Controller
+                    name="subname"
+                    control={control}
+                    // 设置或返回文本框的初始内容
+                    defaultValue=""
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder="subname"
+                    {...field} />}
+                />
+                <p>导语: </p>
                 <Controller
                     name="summary"
                     control={control}
@@ -44,6 +64,19 @@ const Blogeditor = () => {
                     placeholder="summary"
                     multiline
                     rows="2"
+                    {...field} 
+                    />}
+                />
+                <p>发表时间: </p>
+                <Controller
+                    name="time"
+                    control={control}
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder="time"
+                    type="date"
+                    // 可以设置默认值
+                    value="2021-10-29"
                     {...field} 
                     />}
                 />
@@ -59,7 +92,20 @@ const Blogeditor = () => {
                     {...field} 
                     />}
                 />
-                <Button className="submit" variant="contained" type="submit" >提交博文</Button>
+                <p>分类: </p>
+                <Controller
+                    name="tags"
+                    control={control}
+                    render={({ field }) => <Input 
+                    className="blog-content"
+                    placeholder="tags"
+                    {...field} 
+                    />}
+                />
+                <div className="button-container">
+                    <Button className="reset" variant="contained" type="reset" >重置内容</Button>
+                    <Button className="submit" variant="contained" type="submit" >提交博文</Button>
+                </div>
             </form>
         </div>
         <div className="picture-container1">

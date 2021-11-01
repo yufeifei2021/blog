@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import './BlogCategory.css';
 import pageThreeoBg from './pagethreebg.jpg';
 import { AppBar, Toolbar, Typography, IconButton, Input, Button, Chip } from '@material-ui/core';
-import { Menu as MenuIcon } from '@material-ui/icons';
+import { Menu as MenuIcon, Delete as DeleteIcon } from '@material-ui/icons';
 import axios from 'axios';
 
 
@@ -11,14 +11,26 @@ const Blogcategory = () => {
 
     const { control, handleSubmit } = useForm();
     const [categorylist, setCategoryList] = React.useState([]);
-    const onSubmit = data => console.log(data);
+    // const onSubmit = (data) => console.log(data);
 
     const getlist = () => {
         axios.get('http://127.0.0.1:8000/blog/categories/')
         .then(function (response) {
-            // 处理成功情况
-            console.log(response);
             setCategoryList(response.data);
+        })
+    };  
+
+    const onSubmit = (data) => {
+        axios.post('http://127.0.0.1:8000/blog/categories/', data)
+        .then(function (response) {
+            getlist();
+        })
+    }
+    
+    const handleDelete = (id) => {
+        axios.delete(`http://127.0.0.1:8000/blog/categories/${id}/`)
+        .then(function(response){
+            getlist();
         })
     };
 
@@ -53,7 +65,13 @@ const Blogcategory = () => {
                 </div>
                 <div className="chips-wrapper">
                     {categorylist.map(item => ( 
-                        <Chip className="chip" color="primary" label={item.name}/> 
+                        <Chip 
+                            className="chip" 
+                            color="primary" 
+                            label={item.name}
+                            onDelete={() => handleDelete(item.id)}
+                            deleteIcon={<DeleteIcon />}
+                        /> 
                     ))}
                 </div>
             </form>

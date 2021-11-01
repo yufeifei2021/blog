@@ -63,17 +63,18 @@ body {
     margin-bottom: 15px !important;
 }
 
-.chip {
-    margin-top: 15px;
+.chips-wrapper .chip {
+    margin-top: 25px;
     margin-left: 5px;
     margin-right: 5px;
-    width: 5em;
+    /* width: 9em; */
+    max-width: 100%;
 }
 
-.chip:first-child {
+/* .chip:first-child {
     margin-left: 0;
 }
 
 .chip:last-child {
     margin-right: 0;
-}
+} */

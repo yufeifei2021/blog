@@ -2,13 +2,26 @@ import React from 'react';
 import { useForm, Controller } from "react-hook-form";
 import './BlogEditor.css';
 import pageThreeoBg from './pagethreebg.jpg';
-import { AppBar, Toolbar, Typography, IconButton, Input, Button } from '@material-ui/core';
-import { Menu as MenuIcon } from '@material-ui/icons';
+import { AppBar, Toolbar, Typography, IconButton, Input, Button, TextField, MenuItem } from '@material-ui/core';
+import { Menu as MenuIcon, NorthWest } from '@material-ui/icons';
+import axios from 'axios';
 
 const Blogeditor = () => {
 
-    const { control, handleSubmit } = useForm();
+    const { control, handleSubmit, reset } = useForm();
+    const [categorylist, setCategoryList] = React.useState([]);
     const onSubmit = data => console.log(data);
+
+    const getlist = () => {
+        axios.get('http://127.0.0.1:8000/blog/categories/')
+        .then(function (response) {
+            setCategoryList(response.data);
+        })
+    };  
+
+    React.useEffect(() => {
+        getlist();
+    },[]);
 
     return (
         <>
@@ -24,20 +37,34 @@ const Blogeditor = () => {
                 </Toolbar>
             </AppBar>
             <form className="form" onSubmit={handleSubmit(onSubmit)}> 
-                <p>Category name: </p>
+                <p>类别: </p>
                 <Controller
-                    name="Category name"
+                    name="category_id"
                     control={control}
-                    render={({ field }) => <Input 
-                    className="blog-content"
-                    placeholder="Category name"
-                    {...field} />}
+                    // 设置或返回文本框的初始内容
+                    defaultValue={null}
+                    render={({ field: { onChange, value, ref } }) =>
+                        <TextField
+                            className="category_select"
+                            select
+                            variant="filled"
+                            label="类别"
+                            // 引用
+                            ref={ref}
+                            onChange={onChange}
+                            value={value}
+                        >
+                           { categorylist.map(item => (
+                               <MenuItem value={item.id} key={item.id}>
+                                   {item.name}
+                               </MenuItem>
+                           )) }
+                        </TextField>}
                 />
                 <p>标题: </p>
                 <Controller
                     name="name"
                     control={control}
-                    // 设置或返回文本框的初始内容
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
@@ -59,11 +86,12 @@ const Blogeditor = () => {
                 <Controller
                     name="summary"
                     control={control}
+                    defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
                     placeholder="summary"
-                    multiline
-                    rows="2"
+                    // multiline
+                    // rows="2"
                     {...field} 
                     />}
                 />
@@ -84,11 +112,12 @@ const Blogeditor = () => {
                 <Controller
                     name="content"
                     control={control}
+                    defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
                     placeholder="content"
-                    multiline
-                    rows="10"
+                    // multiline
+                    // rows="10"
                     {...field} 
                     />}
                 />
@@ -103,7 +132,7 @@ const Blogeditor = () => {
                     />}
                 />
                 <div className="button-container">
-                    <Button className="reset" variant="contained" type="reset" >重置内容</Button>
+                    <Button className="reset" variant="contained" type="reset" onClick={() => reset()}>重置内容</Button>
                     <Button className="submit" variant="contained" type="submit" >提交博文</Button>
                 </div>
             </form>

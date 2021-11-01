@@ -45,6 +45,17 @@ body {
     width:10em;
 }
 
+.category_select {
+    z-index: 1;
+    width: 10em;
+    background-color: white;
+}
+
+.category_input {
+    z-index: 1;
+    color: black;
+}
+
 .blog-content {
     width:580px;
     color: black;

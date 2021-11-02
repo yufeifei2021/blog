@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Wrapper from './pageWrapper';
 import Index from './App';
 import BlogEditor from './BlogEditor';

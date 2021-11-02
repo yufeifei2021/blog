@@ -22,14 +22,14 @@ const Blogcategory = () => {
 
     const onSubmit = (data) => {
         axios.post('http://127.0.0.1:8000/blog/categories/', data)
-        .then(function (response) {
+        .then(function () {
             getlist();
         })
     }
     
     const handleDelete = (id) => {
         axios.delete(`http://127.0.0.1:8000/blog/categories/${id}/`)
-        .then(function(response){
+        .then(function(){
             getlist();
         })
     };
@@ -69,6 +69,7 @@ const Blogcategory = () => {
                             className="chip" 
                             color="primary" 
                             label={item.name}
+                            key={item.id}
                             onDelete={() => handleDelete(item.id)}
                             deleteIcon={<DeleteIcon />}
                         /> 

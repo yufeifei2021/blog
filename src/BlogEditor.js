@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import './BlogEditor.css';
 import pageThreeoBg from './pagethreebg.jpg';
 import { AppBar, Toolbar, Typography, IconButton, Input, Button, TextField, MenuItem } from '@material-ui/core';
-import { Menu as MenuIcon, NorthWest } from '@material-ui/icons';
+import { Menu as MenuIcon } from '@material-ui/icons';
 import axios from 'axios';
 
 const Blogeditor = () => {
@@ -18,6 +18,8 @@ const Blogeditor = () => {
             setCategoryList(response.data);
         })
     };  
+    
+    // 上下2个表示在页面刚开始加载的时候像后端请求数据
 
     React.useEffect(() => {
         getlist();
@@ -41,7 +43,6 @@ const Blogeditor = () => {
                 <Controller
                     name="category_id"
                     control={control}
-                    // 设置或返回文本框的初始内容
                     defaultValue={null}
                     render={({ field: { onChange, value, ref } }) =>
                         <TextField
@@ -75,7 +76,6 @@ const Blogeditor = () => {
                 <Controller
                     name="subname"
                     control={control}
-                    // 设置或返回文本框的初始内容
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"

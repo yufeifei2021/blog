@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Redirect, Route, Switch, useRouteMatch,
+     Route, Switch
   } from 'react-router-dom';
 
 const routeview = ({route}) => {

@@ -3,7 +3,7 @@ import './App.css';
 import pageOneBg from './pageonetwobg.jpg';
 import pageTwoBg from './pageonetwobg.jpg';
 import pageThreeoBg from './pagethreebg.jpg';
-import { IconButton, Step, Stepper, StepLabel,StepContent, Paper, Typography } from '@material-ui/core';
+import { IconButton, Step, Stepper, StepLabel,StepContent, Typography } from '@material-ui/core';
 import { KeyboardArrowDown, KeyboardArrowUp, RotateLeft } from '@material-ui/icons';
 
 const App = () => {

@@ -10,7 +10,7 @@ const Blogeditor = () => {
 
     const { control, handleSubmit, reset } = useForm();
     const [categorylist, setCategoryList] = React.useState([]);
-    const onSubmit = data => console.log(data);
+    // const onSubmit = data => console.log(data);
 
     const getlist = () => {
         axios.get('http://127.0.0.1:8000/blog/categories/')
@@ -24,6 +24,13 @@ const Blogeditor = () => {
     React.useEffect(() => {
         getlist();
     },[]);
+
+    const onSubmit = (data) => {
+        axios.post('http://127.0.0.1:8000/blog/articles/', data)
+        .then(function () {
+            getlist();
+        })
+    };
 
     return (
         <>
@@ -41,7 +48,7 @@ const Blogeditor = () => {
             <form className="form" onSubmit={handleSubmit(onSubmit)}> 
                 <p>类别: </p>
                 <Controller
-                    name="category_id"
+                    name="category"
                     control={control}
                     defaultValue={null}
                     render={({ field: { onChange, value, ref } }) =>
@@ -64,32 +71,32 @@ const Blogeditor = () => {
                 />
                 <p>标题: </p>
                 <Controller
-                    name="name"
+                    name="title"
                     control={control}
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder="name"
+                    placeholder="title"
                     {...field} />}
                 />
                 <p>副标题: </p>
                 <Controller
-                    name="subname"
+                    name="subtitle"
                     control={control}
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder="subname"
+                    placeholder="subtitle"
                     {...field} />}
                 />
                 <p>导语: </p>
                 <Controller
-                    name="summary"
+                    name="introduction"
                     control={control}
                     defaultValue=""
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder="summary"
+                    placeholder="introduction"
                     // multiline
                     // rows="2"
                     {...field} 
@@ -97,11 +104,11 @@ const Blogeditor = () => {
                 />
                 <p>发表时间: </p>
                 <Controller
-                    name="time"
+                    name="publish_time"
                     control={control}
                     render={({ field }) => <Input 
                     className="blog-content"
-                    placeholder="time"
+                    placeholder="publish_time"
                     type="date"
                     // 可以设置默认值
                     value="2021-10-29"
@@ -118,16 +125,6 @@ const Blogeditor = () => {
                     placeholder="content"
                     // multiline
                     // rows="10"
-                    {...field} 
-                    />}
-                />
-                <p>分类: </p>
-                <Controller
-                    name="tags"
-                    control={control}
-                    render={({ field }) => <Input 
-                    className="blog-content"
-                    placeholder="tags"
                     {...field} 
                     />}
                 />

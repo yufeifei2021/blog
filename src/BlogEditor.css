@@ -45,9 +45,9 @@ body {
     width:10em;
 }
 
-.category_select {
+.category-select {
     z-index: 1;
-    width: 10em;
+    width: 300px;
     background-color: white;
 }
 
@@ -65,8 +65,20 @@ body {
     padding-right: 5px !important;
 }
 
-.button-container {
+.button-container1 {
     text-align:center;
+}
+
+.button-container2 {
+    text-align:center;
+}
+
+.get-tags {
+    text-align:center;
+    width:300px;
+    border-style:solid;
+    margin-top: 10px;
+    border-color:white;
 }
 
 .reset {
@@ -83,3 +95,22 @@ body {
     margin-left: 35px !important;
 }
 
+.tags {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.tags-p {
+    z-index: 1;
+    font-size: 17px;
+    color: white;
+    width:10em;
+}
+
+.tags-select {
+    z-index: 1;
+    width: 300px;
+    background-color: white;
+}

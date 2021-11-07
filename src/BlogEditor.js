@@ -10,7 +10,7 @@ const Blogeditor = () => {
 
     const { control, handleSubmit, reset } = useForm();
     const [categorylist, setCategoryList] = React.useState([]);
-    // const onSubmit = data => console.log(data);
+    const [tags, setTags] = React.useState([]);
 
     const getlist = () => {
         axios.get('http://127.0.0.1:8000/blog/categories/')
@@ -18,14 +18,30 @@ const Blogeditor = () => {
             setCategoryList(response.data);
         })
     };  
-    
-    // 上下2个表示在页面刚开始加载的时候像后端请求数据
+
+    const gettags = () => {
+        axios.get('http://127.0.0.1:8000/blog/tags/')
+        .then(function (response) {
+            setTags(response.data);
+        })
+    }; 
 
     React.useEffect(() => {
         getlist();
+        gettags();
     },[]);
 
     const onSubmit = (data) => {
+        // 因为序列化更改 不能仅传id，相反需要传入obj
+        // for (let i = 0; i < categorylist.length; i++) {
+        //     if (data.category == categorylist[i].id) {
+        //         data.category =  {
+        //             id: categorylist[i].id,
+        //             name: categorylist[i].name
+        //         };
+        //     }
+        // }
+
         axios.post('http://127.0.0.1:8000/blog/articles/', data)
         .then(function () {
             getlist();
@@ -53,7 +69,7 @@ const Blogeditor = () => {
                     defaultValue={null}
                     render={({ field: { onChange, value, ref } }) =>
                         <TextField
-                            className="category_select"
+                            className="category-select"
                             select
                             variant="filled"
                             label="类别"
@@ -97,8 +113,8 @@ const Blogeditor = () => {
                     render={({ field }) => <Input 
                     className="blog-content"
                     placeholder="introduction"
-                    // multiline
-                    // rows="2"
+                    multiline
+                    rows="2"
                     {...field} 
                     />}
                 />
@@ -109,9 +125,7 @@ const Blogeditor = () => {
                     render={({ field }) => <Input 
                     className="blog-content"
                     placeholder="publish_time"
-                    type="date"
-                    // 可以设置默认值
-                    value="2021-10-29"
+                    type="datetime-local"
                     {...field} 
                     />}
                 />
@@ -123,14 +137,36 @@ const Blogeditor = () => {
                     render={({ field }) => <Input 
                     className="blog-content"
                     placeholder="content"
-                    // multiline
-                    // rows="10"
+                    multiline
+                    rows="10"
                     {...field} 
                     />}
-                />
-                <div className="button-container">
+                /> 
+                <div className="button-container1">
                     <Button className="reset" variant="contained" type="reset" onClick={() => reset()}>重置内容</Button>
                     <Button className="submit" variant="contained" type="submit" >提交博文</Button>
+                </div>
+            </form>
+            
+            <form className="form" >
+                <p>标签: </p>
+                <TextField
+                    className="tags-select"
+                    select
+                    variant="filled"
+                    label="标签"
+                >
+                { tags.map(item => (
+                    <MenuItem value={item.id} key={item.id}>
+                        {item.name}
+                    </MenuItem>
+                )) }
+                </TextField>
+                <div className="get-tags">
+                    asdkj
+                </div>
+                <div className="button-container2">
+                    <Button className="submit" variant="contained" type="submit" >提交标签</Button>
                 </div>
             </form>
         </div>

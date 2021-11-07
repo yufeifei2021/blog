@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+}
+
+.page4 {
+    width: 100%;
+    position: relative;
+  }
+
+.picture-container4 {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: brightness(0.75);
+    /* opacity: 0.9; */
+}
+  
+.picture4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-bar4 {
+    opacity: 0.6;
+    top:0;
+}
+
+.form4 {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    max-width: 90%;
+    opacity: 0.9;
+}
+
+.form4 > p {
+    z-index: 1;
+    font-size: 17px;
+    color: white;
+    width:10em;
+}
+
+.blog-content4 {
+    width:580px;
+    color: black;
+    background-color: white;
+    max-width: 100%;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.button-container4 {
+    text-align:center;
+}
+
+.create4 {
+    display: block !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.chips-wrapper4 .chip1 {
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* width: 9em; */
+    max-width: 100%;
+}

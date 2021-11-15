@@ -75,10 +75,18 @@ body {
 
 .get-tags {
     text-align:center;
-    width:300px;
+    width:580px;
     border-style:solid;
     margin-top: 10px;
     border-color:white;
+}
+
+ .chip3 {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    max-width: 100%;
 }
 
 .reset {

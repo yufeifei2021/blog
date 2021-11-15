@@ -2,8 +2,8 @@ import React from 'react';
 import { useForm, Controller } from "react-hook-form";
 import './BlogEditor.css';
 import pageThreeoBg from './pagethreebg.jpg';
-import { AppBar, Toolbar, Typography, IconButton, Input, Button, TextField, MenuItem } from '@material-ui/core';
-import { Menu as MenuIcon } from '@material-ui/icons';
+import { AppBar, Toolbar, Typography, Chip, IconButton, Input, Button, TextField, MenuItem } from '@material-ui/core';
+import { Menu as MenuIcon, Delete as DeleteIcon } from '@material-ui/icons';
 import axios from 'axios';
 
 const Blogeditor = () => {
@@ -45,6 +45,13 @@ const Blogeditor = () => {
         axios.post('http://127.0.0.1:8000/blog/articles/', data)
         .then(function () {
             getlist();
+        })
+    };
+    
+    const handleDelete = (id) => {
+        axios.delete(`http://127.0.0.1:8000/blog/tags/${id}/`)
+        .then(function(){
+            gettags();
         })
     };
 
@@ -163,7 +170,16 @@ const Blogeditor = () => {
                 )) }
                 </TextField>
                 <div className="get-tags">
-                    asdkj
+                    {tags.map(item => ( 
+                        <Chip 
+                            className="chip3" 
+                            color="primary" 
+                            label={item.name}
+                            key={item.id}
+                            onDelete={() => handleDelete(item.id)}
+                            deleteIcon={<DeleteIcon />}
+                        /> 
+                    ))}
                 </div>
                 <div className="button-container2">
                     <Button className="submit" variant="contained" type="submit" >提交标签</Button>
